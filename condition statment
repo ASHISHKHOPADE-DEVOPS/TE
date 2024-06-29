@@ -1,0 +1,24 @@
+provider "aws" {
+region     = "us-east-1"
+access_key = 
+secret_key = 
+}
+
+variable "instance" {
+       default = "t2.micro"
+}
+ variable "im" {
+       default = "ami-01b799c439fd5516a"
+}
+
+ variable "input" {}
+
+
+resource "aws_instance" "ashish" {
+ami           = var.im
+instance_type = var.instance
+count         = var.input == "asd" ? 3 : 0             #jar asd type kela tar 3 instance honar ani jar dusara kay pan typle kela tar 0 instance tayar honar 
+
+  tags = {
+  name = "HelloWorld"
+  }
