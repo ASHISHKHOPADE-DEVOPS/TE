@@ -1,0 +1,26 @@
+provider "aws" {
+region     = "us-east-1"
+access_key = 
+secret_key = 
+}
+
+variable "sam" {
+  type       = map
+  default    = {
+
+  us-east-1a = "t2-large"
+  us-east-1b = "t2-medium"
+  us-east-1c = "t2-small"
+
+}
+}
+
+
+resource "aws_instance" "ais" {
+ ami           = "ami-01b799c439fd5516a"
+ instance_type = var.sam["us-east-1a"]
+
+tags = {
+    name = "king"
+}
+}
