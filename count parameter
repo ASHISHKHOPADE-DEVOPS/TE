@@ -1,0 +1,15 @@
+provider "aws" {
+region     = "us-east-1"
+access_key = 
+secret_key = 
+}
+
+resource "aws_instance" "ais" {
+ ami           = "ami-01b799c439fd5516a"
+ instance_type = "t2-medium"
+ count         = 3
+
+tags = {
+    name = "king"
+}
+}
